@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <meta name="google-signin-client_id" content="908404351417-7hg5v1g8inv0n69k3mbpd09au750v0ls.apps.googleusercontent.com">
+</head>
+<body>
+
+    <!-- Google Sign Up Template-->
+    <div id="my-signin2"></div>
+    <!-- Google Sign Up Verification-->
+    <script>
+        function onSuccess(googleUser) {
+            console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+            console.log('ID: ' + googleUser.getBasicProfile().getId());
+            console.log('Full Name: ' + googleUser.getBasicProfile().getName());
+            console.log('Given Name: ' + googleUser.getBasicProfile().getGivenName());
+            console.log('Family Name: ' + googleUser.getBasicProfile().getFamilyName());
+            console.log('Image URL: ' + googleUser.getBasicProfile().getImageUrl());
+            console.log('Email: ' + googleUser.getBasicProfile().getEmail());
+            }
+        function onFailure(error) {
+        console.log(error);
+        }
+        function renderButton() {
+        gapi.signin2.render('my-signin2', {
+            'scope': 'profile email',
+            'width': 240,
+            'height': 50,
+            'longtitle': true,
+            'theme': 'dark',
+            'onsuccess': onSuccess,
+            'onfailure': onFailure
+        });
+        }
+    </script>
+    <!-- Google Sign Up API -->
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+
+    
+</body>
+</html>
